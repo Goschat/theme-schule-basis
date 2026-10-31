@@ -1,0 +1,64 @@
+/*
+ * Was theme.json nicht abdeckt: Fokus, Bewegung, Hilfsklassen.
+ * Farben ausschließlich über die Design-Tokens (--wp--preset--color--*).
+ */
+
+/* Sichtbarer Fokus auf allen Bedienelementen (WCAG 2.4.7). */
+:where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+	outline: 3px solid var(--wp--preset--color--fokus);
+	outline-offset: 2px;
+	border-radius: 2px;
+}
+
+/* Sprunglink zum Inhalt sichtbar machen, sobald er den Fokus hat. */
+.skip-link.screen-reader-text:focus {
+	background: var(--wp--preset--color--grund);
+	color: var(--wp--preset--color--text);
+	font-weight: 700;
+	padding: 0.75rem 1rem;
+	z-index: 100000;
+}
+
+/* Bewegung reduzieren, wenn im System so eingestellt (WCAG 2.3.3). */
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+}
+
+/* Links im Fließtext immer unterstrichen, nicht nur über die Farbe erkennbar (WCAG 1.4.1). */
+.entry-content a:not(.wp-element-button),
+.wp-block-post-content a:not(.wp-element-button) {
+	text-decoration-thickness: 1px;
+	text-underline-offset: 0.2em;
+}
+
+/* Fußzeilen-Menü nur am großen Bildschirm (Ideenliste Punkt 3). */
+@media (max-width: 781px) {
+	.schule-nur-desktop {
+		display: none !important;
+	}
+}
+
+/* Links, die in neuem Fenster öffnen, bekommen ein Symbol; der Hinweis für Screenreader steht im Linktext. */
+a[target="_blank"]::after {
+	content: " ↗";
+	content: " ↗" / "";
+}
+
+/* Kopf- und Fußbereich: Abstände über Tokens. */
+.schule-kopf {
+	padding-block: var(--wp--preset--spacing--30);
+	border-bottom: 1px solid var(--wp--preset--color--rahmen);
+}
+
+.schule-fuss {
+	background: var(--wp--preset--color--flaeche);
+	margin-block-start: var(--wp--preset--spacing--60);
+	padding-block: var(--wp--preset--spacing--50);
+}
