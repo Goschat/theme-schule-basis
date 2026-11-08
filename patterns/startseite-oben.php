@@ -3,7 +3,7 @@
  * Title: Startseite oben: Motto und drei Kacheln
  * Slug: theme-schule-basis/startseite-oben
  * Categories: schule
- * Description: Motto zweisprachig, darunter Kacheln für Termine, Unterrichtszeiten und Schuleinschreibung. Ein Titelbild (Cover-Block) davor einfügen.
+ * Description: Motto, darunter Kacheln für Termine, Unterrichtszeiten und Schuleinschreibung. Ein Titelbild (Cover-Block) davor einfügen.
  *
  * @package SchulBank\Basis
  */
@@ -14,10 +14,6 @@ defined( 'ABSPATH' ) || exit;
 <div class="wp-block-group alignwide"><!-- wp:heading {"level":1,"textAlign":"center"} -->
 <h1 class="wp-block-heading has-text-align-center">Motto der Schule</h1>
 <!-- /wp:heading -->
-
-<!-- wp:paragraph {"align":"center","className":"is-style-sl"} -->
-<p class="has-text-align-center is-style-sl">Moto šole</p>
-<!-- /wp:paragraph -->
 
 <!-- wp:columns {"align":"wide"} -->
 <div class="wp-block-columns alignwide"><!-- wp:column -->
